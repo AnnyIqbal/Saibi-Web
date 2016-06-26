@@ -1,0 +1,11 @@
+{
+  "hosting": {
+    "public": "gift",
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  }
+}

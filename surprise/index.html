@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Saif Imran</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1"> <!--To ensure proper rendering and touch zooming-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src='https://cdn.firebase.com/js/client/2.4.2/firebase.js'>
+        var Firebase = require("firebase");
+    </script> <!--firebase cdn for deployment-->
+
+    <!-- bootstrap cdn links -->
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <!-- bootstrap cdn links ended -->
+    <script src="https://cdn.firebase.com/js/client/2.2.1/firebase.js"></script>
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
+
+    <style>
+        body {
+            overflow-x: hidden; /* removes the scroll bar from x-axis*/
+        }
+        #body {
+            color:black;
+            display: flex;
+            flex-wrap: wrap;
+            font-family: georgia, times,"Times New Roman", serif;
+        }
+        p {
+            font-family: Arial, Verdana, sans-serif;
+            font-size: larger;
+        }
+        #dp {
+            margin-top: 10px;
+            width:25%;
+            height:25%;
+        }
+        #header a {
+            color: black;
+            margin: 10px 2px 0 0;
+        }
+        #header a:hover {
+            color: white;
+            font-weight: bold;
+            text-decoration: underline;
+            background-color: black;
+        }
+        #header figcaption {
+            color: black;
+        }
+        #home {
+            font-size: larger;
+        }
+        .item {
+            height: 500px;
+            width: 100%;
+            align-content: stretch; /*check it */
+        }
+        #about {
+            color: black;
+            background-color: white;
+        }
+        #gallery {
+            color: white;
+            background-color: black;
+        }
+        #gallery img {
+            width: 500px;
+            height: 350px;
+        }
+        #gallery .row div {
+            box-sizing: border-box;
+            box-snap: center;
+        }
+        #home {
+            height: 850px;
+            padding-top: 100px;
+        }
+        #about, #gallery, #surprise {
+            height: auto;
+            padding: 150px 0 100px 0;
+        }
+        #surprise img {
+            height: 300px;
+            width: 500px;
+        }
+        #footer {
+            color: black;  !important;
+            background-color: white;
+        }
+        #t1, #t2 {
+            margin-top: 10px;
+        }
+        #footer img {
+            width:75%;
+            height:75%;
+        }
+        .navbarMenu {
+            background-color: rgba(180,180,180,0.38);
+        }
+
+        @media screen and (max-width: 768px){    /* for small screens<768px, jb screen ziada se ziada 767px ki ho tb */
+            #bs-example-navbar-collapse-1 li { /* navbar's list items */
+                margin: 0 10px;
+            }
+            #carousel-example-generic img {
+                height:50%;
+                width:50%;
+            }
+            #home, #about, #gallery, #surprise, #footer {
+                margin: 0 0;
+            }
+            #gallery img {
+                height:30%;
+                width:30%;
+            }
+            #footer img {
+                height:5%;
+                width:5%;
+            }
+            #footer .col-sm-1 {
+                display:inline;
+            }
+        }
+        @media screen and (min-width: 1000px) {     /* for larger devices 1000px and more */
+            #body, #nbar, #footer {
+                width: 1000px;
+                margin: 0 auto;
+            }
+        }
+    </style>
+</head>
+<body class="scaffolding.less" data-spy="scroll" data-target=".navbar" data-offset="50">
+<div id="body" class="container-fluid">
+    <div class="row">
+        <div id="header">
+            <nav class="navbar navbar-fixed-top">
+                <div class="container" id="nbar">
+
+                    <!-- sir ka code -->
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="glyphicon glyphicon-menu-hamburger"></span>
+                        </button>
+                        <!-- sir ka code ends -->
+
+                        <figure>
+                            <img src="Images/saif%20imran.jpg" class="img-circle" alt="display pic" id="dp" /> <br>
+                            <figcaption class="navbar-brand"><strong>Saif Imran</strong></figcaption>
+                        </figure>
+                    </div>
+
+                    <!-- sir ka code -->
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav navbar-right">
+                            <li> <a href="#home" class="btn btn-default navbarMenu">Home</a> </li>
+                            <li> <a href="#about" class="btn btn-default navbarMenu">About</a> </li>
+                            <li> <a href="#gallery" class="btn btn-default navbarMenu">Gallery</a> </li>
+                            <li> <a href="#surprise" class="btn btn-default navbarMenu">Surprise</a> </li>
+                        </ul>
+                    </div><!-- /.navbar-collapse -->
+                    <!-- sir ka code ends -->
+
+                </div><!-- /.container -->
+            </nav>
+        </div> <!-- /#header -->
+        <div id="home" class="row text-right">
+            <div class="col-sm-12">
+                <br/><br/>          
+        <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+  <!-- Indicators -->
+  <ol class="carousel-indicators">
+    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+    <li data-target="#carousel-example-generic" data-slide-to="3"></li>
+    <li data-target="#carousel-example-generic" data-slide-to="4"></li>
+  </ol>
+
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner" role="listbox">
+    <div class="item active">
+      <img src="Images/carousel/happy.jpg" alt="happy birthday">
+      <div class="carousel-caption"> Happy Birthday Saibi :) </div>
+    </div>
+    <div class="item">
+        <img src="Images/carousel/dd.jpg" alt="naughty mood">
+        <div class="carousel-caption">Saif Imran </div>
+    </div>
+    <div class="item">
+      <img src="Images/carousel/rain.png" alt="rain">
+      <div class="carousel-caption">Loves rain! </div>
+    </div>
+    <div class="item">
+      <img src="Images/carousel/pani.png" alt="friends" class="image-center"> <!--check if this class exists -->
+      <div class="carousel-caption">Fun with friends! </div>
+    </div>
+    <div class="item">
+      <img src="Images/carousel/wedd.jpg" alt="wedding">
+      <div class="carousel-caption">Happily Married </div>
+    </div>
+  </div>
+
+  <!-- Controls -->
+  <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+            </div>
+        </div> <!-- /#home -->
+        <div class="row" id="about">
+            <div class="col-sm-1"></div>
+            <div class="col-sm-10 padd">
+                <h2 class="text-center"><em><strong>ABOUT SAIF IMRAN</strong></em></h2>
+                <p class="text-center"> A nice person! </p>
+                <h2>Date of Birth : </h2>
+                <h2>Hobbies :</h2>
+                <h2>Lives in:</h2>
+                <h2>Works at:</h2>
+                <h2>as an:</h2>
+                <h2>Studied:</h2> <img src="Images/trophy.jpg" alt="pic at coms" />
+                <h2>Married to:</h2> <img src="Images/married.jpg" alt="wedding moments" />
+                <h2>as on:</h2>
+
+                <h2>favorites</h2>
+                <h3>colors: black and white</h3>
+                <h3>food: mutton karahi</h3>
+                <h3>place: beach</h3>
+
+
+            </div>
+            <div class="col-sm-1"></div>
+        </div> <!-- /#about -->
+        <div class="row text-center" id="gallery">
+            <h1><em><strong>GALLERY</strong></em></h1>
+            <div class="row">
+                <div class="col-sm-4" id="pr1">
+                    <img src="Images/gallery/saibi.jpg" class="img-responsive img-thumbnail center-block" />
+                </div>
+
+                <div class="col-sm-4">
+                    <img src="Images/gallery/guitar.jpg" class="img-responsive img-thumbnail center-block" />
+                </div>
+
+                <div class="col-sm-4">
+                    <img src="Images/gallery/valima.jpg" class="img-responsive img-thumbnail center-block" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-4">
+                    <img src="Images/gallery/sea.jpg" class="img-responsive img-thumbnail center-block" />
+                </div>
+                <div class="col-sm-4">
+                    <img src="Images/gallery/beach.png" class="img-responsive img-thumbnail center-block" />
+                </div>
+                <div class="col-sm-4">
+                    <img src="Images/gallery/friends.png" class="img-responsive img-thumbnail center-block" />
+                </div>
+            </div>
+        </div> <!-- /#gallery -->
+        <div id="surprise">
+            <div class = "row text-center">
+                <div class="col-sm-12">
+                    <h1> <em><strong>SURPRISE DIDU!</strong></em> </h1>
+                    <p>On your special day, I wish you the bestest of luck. I hope this wonderful day will fill up your heart with joy and blessings. <br>Have a fantastic birthday! May this day brings countless blessings of health, wealth, happiness and prosperity to your life! Ameen. <br> <strong> Happy Birthday!! </strong> Many happy returns of the day! May you have many many more...</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6">
+                    <video width="500" height="300" controls><!-- autoplay-->
+                        <source src="Images/hbd.mp4" type="video/mp4">
+                        Happy Birthday Dear Saibi !!
+                    </video>
+                </div>
+                <div class="col-sm-6">
+                    <img src="Images/BirthdayCard.jpg" alt="Happy birthday" />
+                </div>
+            </div>
+        </div> <!-- /#surprise -->
+        <div class="row" id = "footer">
+            <div class="col-sm-5 text-center" id="t1">
+                <strong> A special gift for a special friend! © June 27, 2016. </strong>
+            </div>
+
+            <div class="col-sm-2 text-center" id="t2">
+                <strong> Get in Touch:</strong>
+            </div>
+
+            <div class="col-sm-1">
+                <a href="mailto:saifspokhi@gmail.com" target="_blank">
+                    <img src="Images/email.jpg" alt="Email Me" class="img-circle" />
+                </a>
+            </div>
+
+            <div class="col-sm-1">
+                <a href="https://www.facebook.com/saif.imran.71" target="_blank">
+                    <img src="Images/fb.jpg" alt="Facebook Profile" class="img-rounded"  />
+                </a>
+            </div>
+
+            <div class="col-sm-1">
+                <a href="https://pk.linkedin.com/in/saif-imran-87511b10b" target="_blank">
+                    <img src="Images/linkedin.jpg" alt="LinkedIn Profile" class="img-rounded"  />
+                </a>
+            </div>
+
+            <div class="col-sm-1">
+                <a href="#header" id="backtotop">
+                    <img src="Images/caret.png" alt="Back to Top" class="img-circle" />
+                </a>
+            </div>
+
+        </div> <!-- #footer -->
+    </div> <!-- /row -->
+</div> <!-- /#body -->
+<script>
+    var myDataRef = new Firebase('https://surprise4saibi.firebaseapp.com/');
+</script>
+</body>
+</html>
