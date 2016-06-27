@@ -124,6 +124,9 @@
         }
 
         @media screen and (max-width: 768px){    /* for small screens<768px, jb screen ziada se ziada 767px ki ho tb */
+            body {
+            width: auto;
+            }
             #bs-example-navbar-collapse-1 li { /* navbar's list items */
                 margin: 0 10px;
             }
@@ -413,7 +416,7 @@
     </div> <!-- /row -->
 </div> <!-- /#body -->
 <script>
-    var myDataRef = new Firebase('https://surprise4saibi.firebaseapp.com/'); // for firebase hosting
+    // var myDataRef = new Firebase('https://surprise4saibi.firebaseapp.com/'); // for firebase hosting
 
     function showCaption(id) {
         document.getElementById(id).className = "visible";
