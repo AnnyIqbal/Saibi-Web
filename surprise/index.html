@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -22,7 +22,7 @@
 
     <style>
         body {
-            overflow-x: hidden; /* removes the scroll bar from x-axis*/
+            /*overflow-x: hidden;  removes the scroll bar from x-axis*/
         }
         #body {
             color:black;
@@ -70,6 +70,13 @@
             color: black;
             background-color: white;
         }
+        #about figure img {
+            height: 200px;
+            width: 200px;
+        }
+        #about figure img:hover {
+            border:10px solid white;
+        }
         #gallery {
             color: white;
             background-color: black;
@@ -77,6 +84,9 @@
         #gallery img {
             width: 500px;
             height: 350px;
+        }
+        #gallery img:hover {
+            border:10px solid black;
         }
         #gallery .row div {
             box-sizing: border-box;
@@ -113,12 +123,8 @@
             #bs-example-navbar-collapse-1 li { /* navbar's list items */
                 margin: 0 10px;
             }
-            #carousel-example-generic img {
-                height:50%;
-                width:50%;
-            }
             #home, #about, #gallery, #surprise, #footer {
-                margin: 0 0;
+                margin: 0;
             }
             #gallery img {
                 height:30%;
@@ -227,27 +233,79 @@
             </div>
         </div> <!-- /#home -->
         <div class="row" id="about">
-            <div class="col-sm-1"></div>
-            <div class="col-sm-10 padd">
-                <h2 class="text-center"><em><strong>ABOUT SAIF IMRAN</strong></em></h2>
-                <p class="text-center"> A nice person! </p>
-                <h2>Date of Birth : </h2>
-                <h2>Hobbies :</h2>
-                <h2>Lives in:</h2>
-                <h2>Works at:</h2>
-                <h2>as an:</h2>
-                <h2>Studied:</h2> <img src="Images/trophy.jpg" alt="pic at coms" />
-                <h2>Married to:</h2> <img src="Images/married.jpg" alt="wedding moments" />
-                <h2>as on:</h2>
-
-                <h2>favorites</h2>
-                <h3>colors: black and white</h3>
-                <h3>food: mutton karahi</h3>
-                <h3>place: beach</h3>
-
-
+            <div class="col-sm-12">
+                <h2 class="text-center"><em><strong>SAIF IMRAN'S PROFILE</strong></em></h2>
+                    <div class="row text-center">
+                        <div class="col-sm-4">
+                            <h4>Works at : <strong>SPO</strong></h4>
+                            <a href="http://www.spopk.org/spo/" target="_blank">
+                                    <figure>
+                                    <img src="Images/about/spo%20logo.ico" alt="spo logo" class="img-responsive img-circle center-block" onmouseover="showCaption('work');" onmouseout="hideCaption('work');" />
+                                    <figcaption id="work" class="hidden">Strengthening Participatory Organization</figcaption>
+                                    </figure>
+                            </a>
+                            <h4>As an : <strong>Admin and Logistics Officer</strong></h4>
+                        </div>
+                        <div class="col-sm-4">
+                        <h4>Studied : <strong>MBA (Marketing)</strong></h4>
+                            <figure>
+                                <img src="Images/about/trophy.jpg" alt="pic at coms" class="img-responsive img-circle center-block" onmouseover="showCaption('study');" onmouseout="hideCaption('study');" />
+                                <figcaption id="study" class="hidden">A proud moment holding the Trophy</figcaption>
+                            </figure>
+                            <h4>From : <strong>University of Karachi</strong></h4>
+                        </div>
+                        <div class="col-sm-4">
+                        <h4>Married to : <strong>Shazia Khan</strong></h4>
+                            <figure>
+                                <img src="Images/about/married.jpg" alt="wedding moments dated Oct 8, 2015" class="img-responsive img-circle center-block" onmouseover="showCaption('weds');" onmouseout="hideCaption('weds');" />
+                                <figcaption id="weds" class="hidden">Wedding Moments dated Oct 8, 2015</figcaption>
+                            </figure>
+                        <h4>As on : <strong>Oct 8, 2015</strong></h4>
+                        </div>
+                    </div>
+                <div class="row text-center">
+                    <div class="col-sm-12">
+                    <h2 class="text-center"><span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span> FAVORITES</h2>
+                        <div class="col-sm-1"></div>
+                        <div class="col-sm-2">
+                            <h4><strong>Colors</strong></h4>
+                                <figure>
+                                    <img src="Images/about/kaba.jpg" alt="black and white" class="img-responsive img-thumbnail center-block" onmouseover="showCaption('color');" onmouseout="hideCaption('color');" />
+                                    <figcaption id="color" class="hidden">Black and White</figcaption>
+                                </figure>
+                        </div>
+                        <div class="col-sm-2">
+                            <h4><strong>Food</strong></h4>
+                               <figure>
+                                    <img src="Images/about/mutton%20karahi.jpg" alt="Mutton Karahi" class="img-responsive img-thumbnail center-block" onmouseover="showCaption('food');" onmouseout="hideCaption('foor');" />
+                                    <figcaption id="food" class="hidden">Mutton Karahi</figcaption>
+                                </figure>
+                        </div>
+                        <div class="col-sm-2">
+                            <h4><strong>Place</strong></h4>
+                                <figure>
+                                    <img src="Images/about/beach.png" alt="Beach" class="img-responsive img-thumbnail center-block" onmouseover="showCaption('place');" onmouseout="hideCaption('place');" />
+                                    <figcaption id="place" class="hidden">Beach Lover</figcaption>
+                                </figure>
+                        </div>
+                        <div class="col-sm-2">
+                        <h4><strong>Actor</strong></h4>
+                            <figure>
+                               <img src="Images/about/salman.jpg" alt="Salman Khan" class="img-responsive img-thumbnail center-block" onmouseover="showCaption('actor');" onmouseout="hideCaption('actor');" />
+                               <figcaption id="actor" class="hidden">Salman Khan</figcaption>
+                            </figure>
+                        </div>
+                        <div class="col-sm-2">
+                        <h4><strong>Actress</strong></h4>
+                            <figure>
+                                <img src="Images/about/madhury.jpg" alt="Madhuri Dixit" class="img-responsive img-thumbnail center-block" onmouseover="showCaption('actress');" onmouseout="hideCaption('actress');" />
+                                <figcaption id="actress" class="hidden">Madhuri Dixit</figcaption>
+                            </figure>
+                        </div>
+                        <div class="col-sm-1"></div>
+                </div>
+                </div>
             </div>
-            <div class="col-sm-1"></div>
         </div> <!-- /#about -->
         <div class="row text-center" id="gallery">
             <h1><em><strong>GALLERY</strong></em></h1>
@@ -282,8 +340,8 @@
                 </div>
                 <div class="col-sm-4">
                     <figure>
-                        <img src="Images/gallery/beach.png" class="img-responsive img-thumbnail center-block" onmouseover="showCaption('4');" onmouseout="hideCaption('4');" />
-                        <figcaption id="4" class="hidden">A random click at seaside</figcaption>
+                        <img src="Images/gallery/fun.png" class="img-responsive img-thumbnail center-block" onmouseover="showCaption('4');" onmouseout="hideCaption('4');" />
+                        <figcaption id="4" class="hidden">A group photo with all crazy friends</figcaption>
                     </figure>
                 </div>
                 <div class="col-sm-4">
