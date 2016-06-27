@@ -22,7 +22,7 @@
 
     <style>
         body {
-            /*overflow-x: hidden;  removes the scroll bar from x-axis*/
+            overflow-x: hidden;  /*removes the scroll bar from x-axis*/
         }
         #body {
             color:black;
@@ -96,9 +96,13 @@
             height: 850px;
             padding-top: 100px;
         }
-        #about, #gallery, #surprise {
+        #about, #gallery {
             height: auto;
-            padding: 150px 0 100px 0;
+            padding: 150px 0 50px 0;
+        }
+        #surprise {
+            padding-top: 150px;
+            height: auto;
         }
         #surprise img {
             height: 300px;
@@ -124,7 +128,8 @@
                 margin: 0 10px;
             }
             #home, #about, #gallery, #surprise, #footer {
-                margin: 0;
+                width:auto;
+                /*margin: 0;*/
             }
             #gallery img {
                 height:30%;
@@ -277,7 +282,7 @@
                         <div class="col-sm-2">
                             <h4><strong>Food</strong></h4>
                                <figure>
-                                    <img src="Images/about/mutton%20karahi.jpg" alt="Mutton Karahi" class="img-responsive img-thumbnail center-block" onmouseover="showCaption('food');" onmouseout="hideCaption('foor');" />
+                                    <img src="Images/about/mutton%20karahi.jpg" alt="Mutton Karahi" class="img-responsive img-thumbnail center-block" onmouseover="showCaption('food');" onmouseout="hideCaption('food');" />
                                     <figcaption id="food" class="hidden">Mutton Karahi</figcaption>
                                 </figure>
                         </div>
@@ -356,12 +361,12 @@
             <div class = "row text-center">
                 <div class="col-sm-12">
                     <h1> <em><strong>SURPRISE DIDU!</strong></em> </h1>
-                    <p>On your special day, I wish you the bestest of luck. I hope this wonderful day will fill up your heart with joy and blessings. <br>Have a fantastic birthday! May this day brings countless blessings of health, wealth, happiness and prosperity to your life! Ameen. <br> <strong> Happy Birthday!! </strong> Many happy returns of the day! May you have many many more...</p>
+                    <p>On your special day, I wish you the bestest of luck. I hope this wonderful day will fill up your heart with joy and blessings. <br>Have a fantastic birthday! May this day brings countless blessings of health, wealth, happiness and prosperity to your life! Ameen. <br> <strong> Happy Birthday!! </strong> Many happy returns of the day! May you have many many more...</p> <br/>
                 </div>
             </div>
             <div class="row">
                 <div class="col-sm-6">
-                    <video width="500" height="300" controls><!-- autoplay-->
+                    <video width="500" height="300" controls autoplay>
                         <source src="Images/hbd.mp4" type="video/mp4">
                         Happy Birthday Dear Saibi !!
                     </video>
@@ -372,8 +377,8 @@
             </div>
         </div> <!-- /#surprise -->
         <div class="row" id = "footer">
-            <div class="col-sm-5 text-center" id="t1">
-                <strong> A special gift for a special friend! © June 27, 2016. </strong>
+            <div class="col-sm-6 text-center" id="t1">
+                <strong> A special gift for a special friend by <a href="https://annyportfolio.firebaseio.com/" target="_blank" >Anny!</a> © June 27, 2016. </strong>
             </div>
 
             <div class="col-sm-2 text-center" id="t2">
