@@ -125,37 +125,19 @@
 
         @media screen and (max-width: 768px){    /* for small screens<768px, jb screen ziada se ziada 767px ki ho tb */
             body {
-            width: 100%;/*auto;*/
+            width: auto;
             margin: 0 auto;
             }
             #bs-example-navbar-collapse-1 li { /* navbar's list items */
                 margin: 0 10px;
             }
-            #carousel-example-generic {
-                height: auto;
-                width: auto;
-                margin: 0 0;
-            }
-            .item {
-            height: 285px;
-            width: 100%;
-            }
-            .item img {
-                margin: 0 auto;
-            }
-            #home, #about, #gallery, #surprise {
-                width:100%;
-                height: auto;
-                padding-top:150px;
-                padding-bottom:50px;
+            #home, #about, #gallery, #surprise, #footer {
+                width:auto;
                 /*margin: 0;*/
             }
             #gallery img {
-                height:200px;
-                width:50%;
-                /*height:400px;*/
-                /*width:80%;*/
-                margin:10px auto;
+                height:30%;
+                width:30%;
             }
             #footer img {
                 height:5%;
@@ -172,6 +154,48 @@
             }
         }
     </style>
+    <script>
+        // var myDataRef = new Firebase('https://surprise4saibi.firebaseapp.com/'); // for firebase hosting
+        var td;
+        for(var i=0; i<6; i++) {
+            td = '<div class="col-sm-4">'+
+                    '<figure>'+
+                    '<img src="Images/gallery/saibi.jpg" class="img-responsive img-thumbnail center-block">'+ // onmouseover="showCaption('0')"; onmouseout="hideCaption('0');" />'+
+                    '<figcaption id="0" class="hidden">In a good mood</figcaption>'+
+                    '</figure>'+
+                    '</div>';
+            document.getElementById("gal").innerHTML += td;
+        }
+
+        var img = document.getElementById("gal").firstChild.firstChild.firstChild;
+        img.onmouseover="showCaption('0')";
+        img.onmouseout="hideCaption('0')";
+
+        function showCaption(id) {
+            document.getElementById(id).className = "visible";
+            document.getElementById(id).style.fontSize = "16px";
+            document.getElementById(id).style.fontWeight = "bolder";
+        }
+        function hideCaption(id) {
+            document.getElementById(id).className = "hidden";
+        }
+
+        //var caption = [["In a good mood","Playing guitar","A lovely moment of Reception"],["Having fun at beach","A group photo with all crazy friends","Special pose for picture"]];
+        //var loop = "for(var i = 0; i < 2; i++) {" +
+        //		"<div class='row'>" +
+        //		"for(var j = 0; j < 3; j++) {" +
+        //		     "<div class='col-sm-4'>" +
+        //			"<figure>" +
+        //			'<img src="Images/gallery/' + i + '.jpg" class="img-responsive img-thumbnail center-block" onmouseover="showCaption('0')"; onmouseout="hideCaption('0');" />' +
+        //			"<figcaption id='0' class='hidden'>" + caption[i][j] + "</figcaption>" +
+        //			"</figure>" +
+        //		     "</div>" +
+        //		"}" +
+        //		"</div>" +
+        //	    "}";
+        //
+        //document.getElementById("gallery").innerHTML += loop;
+    </script>
 </head>
 <body class="scaffolding.less" data-spy="scroll" data-target=".navbar" data-offset="50">
 <div id="body" class="container-fluid">
@@ -242,8 +266,8 @@
       <div class="carousel-caption">Fun with friends! </div>
     </div>
     <div class="item">
-      <img src="Images/carousel/tour.jpg" alt="wedding">
-      <div class="carousel-caption">Going on a tour</div>
+      <img src="Images/carousel/wedd.jpg" alt="wedding">
+      <div class="carousel-caption">Happily Married </div>
     </div>
   </div>
 
@@ -336,49 +360,51 @@
         </div> <!-- /#about -->
         <div class="row text-center" id="gallery">
             <h1><em><strong>GALLERY</strong></em></h1>
-            <div class="row">
-                <div class="col-sm-4">
-                    <figure>
-                        <img src="Images/gallery/saibi.jpg" class="img-responsive img-thumbnail center-block" onmouseover="showCaption('0')"; onmouseout="hideCaption('0');" />
-                        <figcaption id="0" class="hidden">In a good mood</figcaption>
-                    </figure>
-                </div>
+		<div class="row" id="gal">
+            <!--                <div class="col-sm-4">
+                                <figure>
+                                    <img src="Images/gallery/saibi.jpg" class="img-responsive img-thumbnail center-block" onmouseover="showCaption('0')"; onmouseout="hideCaption('0');" />
+                                    <figcaption id="0" class="hidden">In a good mood</figcaption>
+                                </figure>
+                            </div>
 
-                <div class="col-sm-4">
-                    <figure>
-                        <img src="Images/gallery/guitar.jpg" class="img-responsive img-thumbnail center-block" onmouseover="showCaption('1');" onmouseout="hideCaption('1');" />
-                        <figcaption id="1" class="hidden">Playing guitar</figcaption>
-                    </figure>
-                </div>
+                            <div class="col-sm-4">
+                                <figure>
+                                    <img src="Images/gallery/guitar.jpg" class="img-responsive img-thumbnail center-block" onmouseover="showCaption('1');" onmouseout="hideCaption('1');" />
+                                    <figcaption id="1" class="hidden">Playing guitar</figcaption>
+                                </figure>
+                            </div>
 
-                <div class="col-sm-4">
-                    <figure>
-                        <img src="Images/gallery/scooba.jpg" class="img-responsive img-thumbnail center-block" onmouseover="showCaption('2');" onmouseout="hideCaption('2');" />
-                        <figcaption id="2" class="hidden">Under Water Diving</figcaption>
-                    </figure>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-sm-4">
-                    <figure>
-                        <img src="Images/gallery/sea.jpg" class="img-responsive img-thumbnail center-block" onmouseover="showCaption('3');" onmouseout="hideCaption('3');" />
-                        <figcaption id="3" class="hidden">Having fun at beach</figcaption>
-                    </figure>
-                </div>
-                <div class="col-sm-4">
-                    <figure>
-                        <img src="Images/gallery/fun.png" class="img-responsive img-thumbnail center-block" onmouseover="showCaption('4');" onmouseout="hideCaption('4');" />
-                        <figcaption id="4" class="hidden">A group photo with all crazy friends</figcaption>
-                    </figure>
-                </div>
-                <div class="col-sm-4">
-                    <figure>
-                        <img src="Images/gallery/friends.png" class="img-responsive img-thumbnail center-block" onmouseover="showCaption('5');" onmouseout="hideCaption('5');" />
-                        <figcaption id="5" class="hidden">Special pose for picture</figcaption>
-                    </figure>
-                </div>
-            </div>
-        </div> <!-- /#gallery -->
+                            <div class="col-sm-4">
+                                <figure>
+                                    <img src="Images/gallery/valima.jpg" class="img-responsive img-thumbnail center-block" onmouseover="showCaption('2');" onmouseout="hideCaption('2');" />
+                                    <figcaption id="2" class="hidden">A lovely moment of Reception</figcaption>
+                                </figure>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <figure>
+                                    <img src="Images/gallery/sea.jpg" class="img-responsive img-thumbnail center-block" onmouseover="showCaption('3');" onmouseout="hideCaption('3');" />
+                                    <figcaption id="3" class="hidden">Having fun at beach</figcaption>
+                                </figure>
+                            </div>
+                            <div class="col-sm-4">
+                                <figure>
+                                    <img src="Images/gallery/fun.png" class="img-responsive img-thumbnail center-block" onmouseover="showCaption('4');" onmouseout="hideCaption('4');" />
+                                    <figcaption id="4" class="hidden">A group photo with all crazy friends</figcaption>
+                                </figure>
+                            </div>
+                            <div class="col-sm-4">
+                                <figure>
+                                    <img src="Images/gallery/friends.png" class="img-responsive img-thumbnail center-block" onmouseover="showCaption('5');" onmouseout="hideCaption('5');" />
+                                    <figcaption id="5" class="hidden">Special pose for picture</figcaption>
+                                </figure>
+                            </div>
+                        </div>
+ -->
+                    </div> <!-- /#gallery -->
+
         <div id="surprise">
             <div class = "row text-center">
                 <div class="col-sm-12">
@@ -434,17 +460,6 @@
         </div> <!-- #footer -->
     </div> <!-- /row -->
 </div> <!-- /#body -->
-<script>
-    // var myDataRef = new Firebase('https://surprise4saibi.firebaseapp.com/'); // for firebase hosting
-
-    function showCaption(id) {
-        document.getElementById(id).className = "visible";
-        document.getElementById(id).style.fontSize = "16px";
-        document.getElementById(id).style.fontWeight = "bolder";
-    }
-    function hideCaption(id) {
-        document.getElementById(id).className = "hidden";
-    }
-</script>
+</div>
 </body>
 </html>
